@@ -30,7 +30,6 @@ def average_above_zero(input_list):
     som = 0
     n = 0
     
-    first_item=input_list[0]
     #compute the average of positive elements of a list
     for item in input_list:
         if item > 0:
@@ -52,3 +51,22 @@ result=average_above_zero(mylist)
 message="The average of positive sample of {list_value} is {res}".format(list_value=mylist,res=result)
 print(message)
 """
+
+def max_value(input_list):
+    #first check if provided list is no empty
+    if len(input_list)==0:
+        raise ValueError('provided list is empty')
+    #init variable
+    max_value=input_list[0]
+    #compute the average of positive elements of a list
+    for item in input_list:
+        if max_value<item:
+            max_value=item
+    return max_value
+    
+#testing max_value fonction
+mylist=[1,-3,25]
+mymax=max_value(mylist)
+message=('Max Value of {input_l} is {max_v}'.format(input_l=mylist,max_v=mymax))
+print(message) 
+    
