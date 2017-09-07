@@ -53,6 +53,11 @@ print(message)
 """
 
 def max_value(input_list):
+    ##
+    # Basic function able to return the max value of a list
+    #@param input_list; the input list to be scanned
+    #@Throws an exception (ValueError) on an empty list 
+
     #first check if provided list is no empty
     if len(input_list)==0:
         raise ValueError('provided list is empty')
@@ -64,9 +69,45 @@ def max_value(input_list):
             max_value=item
     return max_value
     
+    
+
+""" 
 #testing max_value fonction
 mylist=[1,-3,25]
 mymax=max_value(mylist)
 message=('Max Value of {input_l} is {max_v}'.format(input_l=mylist,max_v=mymax))
-print(message) 
+print(message)
+
+"""
+def reverse_table(input_list):
+    #Basic function able to reverse a table
+    #@param input_list; the input list to be scanned
+    #@Throws an exception (ValueError) on an empty list
     
+    #first check if provided list is no empty
+    if len(input_list)==0:
+        raise ValueError('provided list is empty')
+    #init variable
+    last_idx=len(input_list)
+    #reverse a table
+    for idx in range(len(input_list)/2):
+        last_idx-=1
+        reverse = input_list[idx]
+        input_list[idx]=input_list[last_idx]
+        input_list[last_idx]=reverse
+        return input_list
+ 
+"""
+#testing reverse fonction       
+mylist=[1,-3,25,5,6,7,9]
+mlist=reverse_table(mylist)
+print(mylist)
+"""
+
+   
+       
+        
+        
+        
+        
+     
