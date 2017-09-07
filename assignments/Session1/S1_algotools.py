@@ -103,11 +103,59 @@ mylist=[1,-3,25,5,6,7,9]
 mlist=reverse_table(mylist)
 print(mylist)
 """
+#matrix processing lib
+import numpy
+
+def roi_bbox(myMat):
+    #Function able to find xmin xmax ymin ymax
+    #@param myMat; the matrix or the image 
+    #@Throws an exception (ValueError) on an empty list
+
+    #init variable
+    size_rows=10
+    size_cols=10
+    xmin=size_cols
+    xmax=0
+    ymin=size_rows
+    ymax=0
+    
+    #Check all the matrix to find the min and max
+    for row in range(0,size_rows):
+        for cols in range(0,size_cols):
+            if myMat[row,cols] == 1:
+                if xmin > row:
+                    xmin = row
+                if xmax < row:
+                    xmax = row
+                if ymin > cols:
+                    ymin = cols
+                if ymax < cols:
+                    ymax = cols
+                
+    #Output coordinates matrix
+    bbox_coords=numpy.array([[ymin,xmin],[ymin,xmax],[ymax,xmin],[ymax,xmax]])
+    return bbox_coords
+ 
+
 
    
-       
-        
-        
+#filling something in the matrix. The basic way
+"""
+for row in range(5,8):
+for cols in range(7,9):
+myMat[row,cols]=1
+"""  
+#Create a matrix
+myMat=numpy.zeros([10,10],dtype=int)
+#filling something in the matrix. A nicer way
+myMat[2:4,5:9]=numpy.ones([2,4])
+reponse=roi_bbox(myMat)
+print reponse
+print myMat
+
+
         
         
      
+       
+      
