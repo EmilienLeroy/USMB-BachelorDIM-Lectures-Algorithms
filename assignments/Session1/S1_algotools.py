@@ -109,7 +109,7 @@ import numpy
 def roi_bbox(myMat):
     #Function able to find xmin xmax ymin ymax
     #@param myMat; the matrix or the image 
-    #@Throws an exception (ValueError) on an empty list
+    
 
     #init variable
     size_rows=10
@@ -144,7 +144,9 @@ def roi_bbox(myMat):
 for row in range(5,8):
 for cols in range(7,9):
 myMat[row,cols]=1
-"""  
+"""
+"""
+#Testing Matrix Function
 #Create a matrix
 myMat=numpy.zeros([10,10],dtype=int)
 #filling something in the matrix. A nicer way
@@ -152,6 +154,51 @@ myMat[2:4,5:9]=numpy.ones([2,4])
 reponse=roi_bbox(myMat)
 print reponse
 print myMat
+"""
+
+
+#Random Table
+#random processing lib
+from random import *
+
+def random_fill_sparse(tab, v):
+    #Function able to fill randomly a matrix
+    #@param tab; the table
+    #@param v; a random number
+    
+    #init variable
+    size_tab = len(tab);
+    counter = 0;
+    
+    #Fill the table until the counter is equal to zero
+    for row in range(0,size_tab):
+        for cols in range(0,size_tab):
+            if counter < v:
+                tab[row,cols]='X';
+                counter=counter+1;    
+    #return the table fill           
+    return tab;
+                
+def alea(v):
+    #Function who return an random number 
+    #@param v; the size of the array
+    random = randint(0,v); 
+    return random;
+    
+"""
+#Testing random_fill_sparse function
+n=5;
+tab=numpy.chararray((n, n));
+tab[:] = '';
+v= tab.size;
+random = alea(v);
+result = random_fill_sparse(tab,random);
+print result;
+"""
+
+
+           
+
 
 
         
