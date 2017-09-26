@@ -54,7 +54,7 @@ print(message)
 
 def max_value(input_list):
     ##
-    # Basic function able to return the max value of a list
+    #@details Basic function able to return the max value of a list
     #@param input_list; the input list to be scanned
     #@Throws an exception (ValueError) on an empty list 
 
@@ -67,6 +67,7 @@ def max_value(input_list):
     for item in input_list:
         if max_value<item:
             max_value=item
+    #@return the max value
     return max_value
     
     
@@ -80,7 +81,7 @@ print(message)
 
 """
 def reverse_table(input_list):
-    #Basic function able to reverse a table
+    #@details Basic function able to reverse a table
     #@param input_list; the input list to be scanned
     #@Throws an exception (ValueError) on an empty list
     
@@ -95,6 +96,7 @@ def reverse_table(input_list):
         reverse = input_list[idx]
         input_list[idx]=input_list[last_idx]
         input_list[last_idx]=reverse
+        #@return reverse table 
         return input_list
  
 """
@@ -107,7 +109,7 @@ print(mylist)
 import numpy
 
 def roi_bbox(myMat):
-    #Function able to find xmin xmax ymin ymax
+    #@details Function able to find xmin xmax ymin ymax
     #@param myMat; the matrix or the image 
     
 
@@ -132,7 +134,7 @@ def roi_bbox(myMat):
                 if ymax < cols:
                     ymax = cols
                 
-    #Output coordinates matrix
+    #@return Output coordinates matrix
     bbox_coords=numpy.array([[ymin,xmin],[ymin,xmax],[ymax,xmin],[ymax,xmax]])
     return bbox_coords
  
@@ -162,7 +164,7 @@ print myMat
 from random import *
 
 def random_fill_sparse(tab, v):
-    #Function able to fill randomly a matrix
+    #@details Function able to fill randomly a matrix
     #@param tab; the table
     #@param v; a random number
     
@@ -176,11 +178,11 @@ def random_fill_sparse(tab, v):
             if counter < v:
                 tab[row,cols]='X';
                 counter=counter+1;    
-    #return the table fill           
+    #@return the table fill           
     return tab;
                 
 def alea(v):
-    #Function who return an random number 
+    #@details Function who return an random number 
     #@param v; the size of the array
     random = randint(0,v); 
     return random;
@@ -194,6 +196,28 @@ v= tab.size;
 random = alea(v);
 result = random_fill_sparse(tab,random);
 print result;
+"""
+
+#Remove Whitespace
+def remove_whitespace(string):
+    #@details Function able to remove whitespace in a string
+    #@param string; the string with the whitespace  
+    
+    #init variable
+    temp = "";
+    
+    #Parse the string and find the whitespace
+    for chara in string:
+        if chara != " ":
+            temp = temp + chara;
+    #@return the string without whitespace
+    return temp; 
+
+"""
+#Testing remove_whitespace function
+whitespace = "I am a whitespace";
+result = remove_whitespace(whitespace);
+print(result);
 """
 
 
