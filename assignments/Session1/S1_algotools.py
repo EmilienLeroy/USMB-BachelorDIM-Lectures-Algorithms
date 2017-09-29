@@ -220,13 +220,40 @@ result = remove_whitespace(whitespace);
 print(result);
 """
 
+#Random item selection
+def shuffle(shufflelist):
+    #@details Function able to shuffle a list
+    #@param list; the lsit that will be shuffle 
+    
+    #init variable
+    copylist = [];
+    i = 0;
+    randomlist = [];
+    random = randint(0,(len(shufflelist))-1);
 
-           
+    #copy the initial list
+    for l in shufflelist:
+        copylist.append(l);   
+    
+    #retrieve 'x' random number
+    for r in range(0,len(shufflelist)):
+            random = randint(0,(len(shufflelist))-1);
+            while random in randomlist != True:
+                    random = randint(0,(len(shufflelist))-1);           
+            randomlist.append(random)    
+    
+    #shuffle the initial list
+    for li in randomlist:
+        shufflelist[i]=copylist[li];
+        i=i+1;      
+    
+    #@return the list shuffle
+    return shufflelist; 
 
+'''
+#Testing shuffle function
+mylist = [1,2,3,5,6,3]
+ls = shuffle(mylist)
+print ls
+'''
 
-
-        
-        
-     
-       
-      
