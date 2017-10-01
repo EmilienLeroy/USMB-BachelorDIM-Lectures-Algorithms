@@ -257,3 +257,101 @@ ls = shuffle(mylist)
 print ls
 '''
 
+#Sorting
+
+def sort_selective(list_in):
+    #@details Function able to sort a list
+    #@param list; the lsit that will be sort 
+    
+    #init variable
+    list_lenght = len(list_in);
+    Svector = [];
+    maxi = 0;
+    
+    #Sort the list
+    for l in range(0,list_lenght):
+        maxi = max_value(list_in);
+        Svector.append(maxi);
+        list_in.remove(maxi);
+        
+    #@return the list sort
+    return Svector;
+
+
+'''
+#Testing sort_selective function
+vector = [10, 15, 7, 1,3, 3, 9];
+svector = sort_selective(vector);
+print svector
+
+#Question
+Does the number of iterations depend on the vector content ?
+Yes.
+
+How many iterations are required to sort the whole vector ?
+The number of iterations depends on the size of the vector.
+Here 7.
+
+How many permutations are applied ?
+As much as the number of values ​​in the vector.
+Here 7.
+
+How many comparisons are applied ?
+As much as the number of values ​​in the vector.
+Here 7.
+
+Can you quantify the algorithm complexity ?
+Not very complex.
+'''
+
+def sort_bubble(list_in):
+    #@details Function able to sort a list
+    #@param list; the lsit that will be sort 
+    
+    #init variable
+    N = len(list_in)-1;
+    change = True;
+    
+    #Sort the list with the bubble algorithm
+    while N > 0 and change == True:
+        change = False;
+        for j in range(0,N):
+            if list_in[j]>list_in[j+1]:
+                change = True;
+                temp = list_in[j];
+                list_in[j] = list_in[j+1];
+                list_in[j+1] = temp;
+        N = N - 1;
+        maxi = max_value(list_in);
+        list_in.remove(maxi);
+        list_in.append(maxi); 
+    
+    #@return the list sort    
+    return list_in;
+
+'''
+#Testing sort_bubble function
+vector = [10, 15, 7, 1,3, 3, 9];
+svector = sort_bubble(vector);
+print svector
+
+#Question
+Does the number of iterations depend on the vector content ?
+No.
+
+How many iterations are required to sort the whole vector ?
+the number of iterations depends on the values ​​in the vector.
+Here 17.
+
+How many permutations are applied ?
+this depends on the values ​​in the vector.
+Here 17.
+
+How many comparisons are applied ?
+this depends on the values ​​in the vector
+Here 13.
+
+Can you quantify the algorithm complexity ?
+Very complex.
+
+'''
