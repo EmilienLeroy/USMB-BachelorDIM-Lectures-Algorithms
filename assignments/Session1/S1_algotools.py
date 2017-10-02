@@ -29,7 +29,7 @@ def average_above_zero(input_list):
     #init variable
     som = 0
     n = 0
-    
+
     #compute the average of positive elements of a list
     for item in input_list:
         if item > 0:
@@ -39,10 +39,14 @@ def average_above_zero(input_list):
             print('This value is null:'+str(item))        
         else:
             print('This value is not positive:'+str(item))
+    if som == 0:
+        average= 0;
+        return float(average)
     #compute the final average
-    average= float(som)/float(n)
-    print('Positive elements average is '+str(average))
-    return float(average)
+    else:
+        average= float(som)/float(n)
+        print('Positive elements average is '+str(average))
+        return float(average)
     
 """    
 #testing the fonction
