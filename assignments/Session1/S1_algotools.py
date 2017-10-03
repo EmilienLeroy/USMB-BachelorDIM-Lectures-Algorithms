@@ -127,6 +127,7 @@ def roi_bbox(myMat):
     xmax=0
     ymin=size_rows
     ymax=0
+    check = False
     
     #Check all the matrix to find the min and max
     for row in range(0,size_rows):
@@ -140,30 +141,31 @@ def roi_bbox(myMat):
                     ymin = cols
                 if ymax < cols:
                     ymax = cols
-                
-    #@return Output coordinates matrix
-    bbox_coords=numpy.array([[ymin,xmin],[ymin,xmax],[ymax,xmin],[ymax,xmax]])
-    return bbox_coords
- 
-
-
+                check = True
+    if check == False:
+        raise ValueError('provided matrix is empty')
+    else: 
+        #@return Output coordinates matrix
+        bbox_coords=numpy.array([[ymin,xmin],[ymin,xmax],[ymax,xmin],[ymax,xmax]])
+        return bbox_coords
    
+    
 #filling something in the matrix. The basic way
 """
 for row in range(5,8):
 for cols in range(7,9):
 myMat[row,cols]=1
 """
-"""
+'''
 #Testing Matrix Function
 #Create a matrix
 myMat=numpy.zeros([10,10],dtype=int)
 #filling something in the matrix. A nicer way
-myMat[2:4,5:9]=numpy.ones([2,4])
+myMat[10:0,0:10]=numpy.ones([10,9])
 reponse=roi_bbox(myMat)
 print reponse
 print myMat
-"""
+'''
 
 
 #Random Table
