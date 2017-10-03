@@ -234,6 +234,8 @@ def shuffle(shufflelist):
     #@details Function able to shuffle a list
     #@param list; the lsit that will be shuffle 
     
+    if len(shufflelist)==0:
+        raise ValueError('provided list is empty') 
     #init variable
     copylist = [];
     i = 0;

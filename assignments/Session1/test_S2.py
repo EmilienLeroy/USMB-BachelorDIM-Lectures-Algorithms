@@ -92,4 +92,34 @@ def test_roi_bbox():
     with pytest.raises(ValueError, match='provided matrix is empty'):
         assert_array_equal(algo.roi_bbox(myMat),result)
     
- 
+'''
+def test_random_fill_sparse():
+    n = 10;
+    tab=numpy.chararray((n, n));
+    v= tab.size;
+    random = algo.alea(v);
+    result = numpy.chararray((n, n));
+    result = numpy.fill((random,random),dtype=numpy.chararray);
+    assert_array_equal(algo.random_fill_sparse(tab,random),result)
+'''  
+
+def test_remove_whitespace():
+    whitespace = "I am a whitespace";
+    result = "Iamawhitespace" ;
+    assert algo.remove_whitespace(whitespace)==result;
+    
+    whitespace = "iamnotawhitespace";
+    result = "iamnotawhitespace" ;
+    assert algo.remove_whitespace(whitespace)==result;
+    
+    whitespace = "";
+    result = "" ;
+    assert algo.remove_whitespace(whitespace)==result;
+    
+def test_shuffle():
+    mylist = [1,2];
+    assert algo.shuffle(mylist)==[1,2] or [2,1];
+    
+    mylist = [];
+    with pytest.raises(ValueError, match='provided list is empty'):
+        algo.shuffle(mylist)==[];
