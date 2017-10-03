@@ -123,3 +123,30 @@ def test_shuffle():
     mylist = [];
     with pytest.raises(ValueError, match='provided list is empty'):
         algo.shuffle(mylist)==[];
+        
+def test_sort_selective():
+    vector = [10, 15, 7, 1,3, 3, 9];
+    rvector = [15,10,9,7,3,3,1];
+    assert algo.sort_selective(vector)==rvector;
+    
+    vector = [];
+    rvector = [];
+    assert algo.sort_selective(vector)==rvector;
+    
+    vector = [1];
+    rvector = [1];
+    assert algo.sort_selective(vector)==rvector;
+    
+def test_sort_bubble():
+    vector = [10, 15, 7, 1,3, 3, 9];
+    rvector = [1,3,3,7,9,10,15];
+    assert algo.sort_bubble(vector)==rvector;
+    
+    vector = [];
+    rvector = [];
+    assert algo.sort_bubble(vector)==rvector;
+    
+    vector = [1];
+    rvector = [1];
+    assert algo.sort_bubble(vector)==rvector;
+    
