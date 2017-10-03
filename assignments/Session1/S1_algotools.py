@@ -93,22 +93,25 @@ def reverse_table(input_list):
     if len(input_list)==0:
         raise ValueError('provided list is empty')
     #init variable
-    last_idx=len(input_list)
+    last_idx=len(input_list)-1;
     #reverse a table
-    for idx in range(len(input_list)/2):
-        last_idx-=1
-        reverse = input_list[idx]
-        input_list[idx]=input_list[last_idx]
+    length = (int(len(input_list)/2));
+    i= 0;
+    for idx in range(length):
+        reverse = input_list[i]
+        input_list[i]=input_list[last_idx]
         input_list[last_idx]=reverse
+        last_idx = last_idx - 1
+        i = i+1
         #@return reverse table 
-        return input_list
- 
-"""
+    return input_list
+'''
 #testing reverse fonction       
-mylist=[1,-3,25,5,6,7,9]
+mylist=[]
 mlist=reverse_table(mylist)
-print(mylist)
-"""
+print(mlist)
+'''
+
 #matrix processing lib
 import numpy
 
