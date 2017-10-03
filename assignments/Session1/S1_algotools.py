@@ -48,13 +48,7 @@ def average_above_zero(input_list):
         print('Positive elements average is '+str(average))
         return float(average)
     
-"""    
-#testing the fonction
-mylist=[1,2,3,4,-7]
-result=average_above_zero(mylist)
-message="The average of positive sample of {list_value} is {res}".format(list_value=mylist,res=result)
-print(message)
-"""
+
 
 def max_value(input_list):
     ##
@@ -76,14 +70,7 @@ def max_value(input_list):
     
     
 
-""" 
-#testing max_value fonction
-mylist=[1,-3,25]
-mymax=max_value(mylist)
-message=('Max Value of {input_l} is {max_v}'.format(input_l=mylist,max_v=mymax))
-print(message)
 
-"""
 def reverse_table(input_list):
     #@details Basic function able to reverse a table
     #@param input_list; the input list to be scanned
@@ -105,12 +92,7 @@ def reverse_table(input_list):
         i = i+1
         #@return reverse table 
     return input_list
-'''
-#testing reverse fonction       
-mylist=[]
-mlist=reverse_table(mylist)
-print(mlist)
-'''
+
 
 #matrix processing lib
 import numpy
@@ -150,22 +132,6 @@ def roi_bbox(myMat):
         return bbox_coords
    
     
-#filling something in the matrix. The basic way
-"""
-for row in range(5,8):
-for cols in range(7,9):
-myMat[row,cols]=1
-"""
-'''
-#Testing Matrix Function
-#Create a matrix
-myMat=numpy.zeros([10,10],dtype=int)
-#filling something in the matrix. A nicer way
-myMat[10:0,0:10]=numpy.ones([10,9])
-reponse=roi_bbox(myMat)
-print reponse
-print myMat
-'''
 
 
 #Random Table
@@ -193,7 +159,7 @@ def random_fill_sparse(tab, v):
 def alea(v):
     #@details Function who return an random number 
     #@param v; the size of the array
-    random = randint(0,v); 
+    random = randint(1,v); 
     return random;
     
 """
@@ -222,12 +188,6 @@ def remove_whitespace(string):
     #@return the string without whitespace
     return temp; 
 
-"""
-#Testing remove_whitespace function
-whitespace = "I am a whitespace";
-result = remove_whitespace(whitespace);
-print(result);
-"""
 
 #Random item selection
 def shuffle(shufflelist):
@@ -261,12 +221,7 @@ def shuffle(shufflelist):
     #@return the list shuffle
     return shufflelist; 
 
-'''
-#Testing shuffle function
-mylist = [1,2,3,5,6,3]
-ls = shuffle(mylist)
-print ls
-'''
+
 
 #Sorting
 
@@ -290,10 +245,6 @@ def sort_selective(list_in):
 
 
 '''
-#Testing sort_selective function
-vector = [10, 15, 7, 1,3, 3, 9];
-svector = sort_selective(vector);
-print svector
 
 #Question
 Does the number of iterations depend on the vector content ?
@@ -341,10 +292,6 @@ def sort_bubble(list_in):
     return list_in;
 
 '''
-#Testing sort_bubble function
-vector = [10, 15, 7, 1,3, 3, 9];
-svector = sort_bubble(vector);
-print svector
 
 #Question
 Does the number of iterations depend on the vector content ?
