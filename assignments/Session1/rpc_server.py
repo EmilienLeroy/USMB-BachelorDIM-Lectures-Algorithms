@@ -9,6 +9,9 @@ Created on Tue Oct 24 09:24:47 2017
 #import library
 import pika
 import os
+import msgpack
+import msgpack_numpy as m 
+import numpy as np #if Numpy is required
 
 # Configure a connexion to a remote RabbitMQ instance:
 amqp_url='amqp://heysvpao:YXXlkTcgaIxuUQCIEEgsqj-n-L1ZwOcp@lark.rmq.cloudamqp.com/heysvpao';
@@ -22,7 +25,9 @@ channel.queue_declare(queue='rpc_queue')
 
 #Function who response to the client
 def on_request(ch, method, props, body):
-    print(" [.] Client " +str(body))
+    encoded_message=body
+    decoded_message = msgpack.unpackb(encoded_message,object_hook = m.decode)
+    print(" [.] Client %r" % decoded_message)
     response = 'Find and you?'
 
     ch.basic_publish(exchange='',

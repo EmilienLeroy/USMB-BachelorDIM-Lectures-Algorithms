@@ -10,6 +10,9 @@ Created on Tue Oct 24 09:24:47 2017
 import pika
 import uuid
 import os
+import msgpack 
+import msgpack_numpy as m 
+import numpy as np #if Numpy is required
 
 #Class Client RPC
 class RpcClient(object):
@@ -52,8 +55,10 @@ class RpcClient(object):
 
 #Create new RpcClient object
 rpc = RpcClient()
+message = np.random.random((20,30)) 
+encoded_message = msgpack.packb(message,default = m.encode)
 #Rpc Test
-message = "Hi, how ﬁne?"
+
 print(" [x] Message:" )
-response = rpc.call(message)
+response = rpc.call(encoded_message)
 print(" [.] Reponse %r" % response)
