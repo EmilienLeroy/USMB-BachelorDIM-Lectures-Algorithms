@@ -9,7 +9,7 @@ import simple_queue_publish as write
 import simple_queue_read as read
 
 #Add argument
-parser = argparse.ArgumentParser(description='test')
+parser = argparse.ArgumentParser(description='s_r')
 parser.add_argument('-read', action='store_true')
 parser.add_argument('-write', action='store_true')
 args = parser.parse_args()
@@ -20,5 +20,7 @@ if args.read:
     
 if args.write:
     write.write()
+    
+
 
     
