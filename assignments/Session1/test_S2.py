@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Oct 02 10:48:09 2017
-
+@brief testing session 1 function
 @author: leroyem
 """
 
@@ -78,7 +78,7 @@ def test_reverse_table():
     mylist=[];
     newlist=[];
     with pytest.raises(ValueError, match='provided list is empty'):
-         algo.reverse_table(mylist)==newlist; 
+        algo.reverse_table(mylist)==newlist; 
         
         
 def test_roi_bbox():

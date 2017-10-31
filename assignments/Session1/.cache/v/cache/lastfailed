@@ -1,1 +1,3 @@
-{}
+{
+  "test_S3.py::test_invert_colors_manual": true
+}
