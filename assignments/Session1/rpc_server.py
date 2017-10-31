@@ -26,6 +26,7 @@ channel.queue_declare(queue='rpc_queue')
 #Function who response to the client
 def on_request(ch, method, props, body):
     encoded_message=body
+    #decode the message
     decoded_message = msgpack.unpackb(encoded_message,object_hook = m.decode)
     print(" [.] Client %r" % decoded_message)
     response = 'Find and you?'

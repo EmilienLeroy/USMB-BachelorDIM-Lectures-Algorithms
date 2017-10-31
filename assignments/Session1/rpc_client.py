@@ -55,10 +55,12 @@ class RpcClient(object):
 
 #Create new RpcClient object
 rpc = RpcClient()
-message = np.random.random((20,30)) 
-encoded_message = msgpack.packb(message,default = m.encode)
-#Rpc Test
+message = np.random.random((20,30))
 
+#encoding the message (array)
+encoded_message = msgpack.packb(message,default = m.encode)
+
+#Send and recieve the message
 print(" [x] Message:" )
 response = rpc.call(encoded_message)
 print(" [.] Reponse %r" % response)
