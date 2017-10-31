@@ -3,7 +3,7 @@
 @author : Emilien Leroy, LP DIM
 @brief : Send message at rabbitmq
 """
-#Files who send message
+
 #import library
 import pika
 import os
@@ -26,9 +26,6 @@ params.socket_timeout = 5;
 connection = pika.BlockingConnection(params) # Connect to CloudAMQP
 channel = connection.channel()
 
-#sending 1000 message
-
-
 
 #function who send the message
 def write():
@@ -38,7 +35,7 @@ def write():
                           body='Eleroy')
     print(" [x] Sent 'Eleroy'")
     
-    
+#function who send message for mutli server
 def write_routine(i):
     channel.queue_declare(queue='presentation')
     channel.basic_publish(exchange='',
@@ -47,13 +44,13 @@ def write_routine(i):
                           properties=pika.BasicProperties(
                            delivery_mode = 2, # make message persistent
                           ))
-    print(i)
     
-    
+#if param concurrency
 if args1.concurrency:
+    #Send 1000 message to the server
     for i in range (0,100):
         message = "Message numero %r"% (i)
         write_routine(message)
         
-
+#close the connection
 connection.close()

@@ -16,9 +16,11 @@ args = parser.parse_args()
 
 #Choose argument
 if args.read:
+    #read message
     read.read()
     
 if args.write:
+    #send message
     write.write()
     
 

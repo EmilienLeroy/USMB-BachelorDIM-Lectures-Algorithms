@@ -41,7 +41,7 @@ def read():
     channel.start_consuming()
 
 
-
+#Function who read message with multi server
 def read_routine():
     channel.queue_declare(queue='presentation', durable=False)
     print(' [*] Waiting for messages. To exit press CTRL+C')
@@ -59,6 +59,7 @@ def read_routine():
     
     channel.start_consuming()    
     
-    
-if args2.concurrency:   
+#if param concurrency
+if args2.concurrency:
+    #read the message with multi server
     read_routine()
